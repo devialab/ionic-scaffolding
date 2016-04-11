@@ -1,0 +1,25 @@
+{
+    "webPort": 8000,
+
+    "mongodbUrl": "mongodb://localhost/app-name",
+
+    "gcm": {
+        "apiKey": ""
+    },
+
+    "apn": {
+        "connection": {
+            "gateway": "gateway.sandbox.push.apple.com",
+            "cert": "/path/to/certificates/app-name_dev.pem",
+            "key": "/path/to/certificates/app-name_dev_key.pem",
+            "passphrase": "app-name"
+        },
+        "feedback": {
+            "address": "feedback.sandbox.push.apple.com",
+            "cert": "/path/to/certificates/app-name_dev.pem",
+            "passphrase": "app-name",
+            "interval": 43200,
+            "batchFeedback": true
+        }
+    }
+}

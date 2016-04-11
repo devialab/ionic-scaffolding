@@ -1,0 +1,24 @@
+{
+  "appName": "app-name",
+  "lang": "en",
+  "brand.primary": "#ffffff",
+
+  "corbel.urlBase": "http://dev.corbel.io",
+  "corbel.clientId": "clientId",
+  "corbel.clientSecret": "clientSecret",
+  "corbel.domain": "app-name",
+  "corbel.scopes": "app-name:comp",
+  "corbel.userScopes": "app-name:comp:user",
+  "corbel.audience": "http://iam.corbel.io",
+  "resourcesEndpoint": "http://resources.dev.corbel.io:8080/v1.0/",
+  "iamEndpoint": "http://iam.dev.corbel.io:8082/v1.0/",
+
+  "google.projectId": "google_app_id",
+  "googleAnalyticsCode": "UA-XXXXXXXX-X",
+
+  "facebook.appId": "facebook_app_id",
+  "facebook.scopes": ["email", "public_profile"],
+  
+  "defaultState": "tabs",
+  "production": false 
+}

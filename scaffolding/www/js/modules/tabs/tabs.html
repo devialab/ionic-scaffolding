@@ -1,0 +1,45 @@
+<ion-view view-title="">
+
+  <div class="tabs tabs-top tabs-icon-top">
+    <a class="tab-item" ng-click="vm.setTabIndex(0)" ng-class="{'active': vm.currentIndex === 0}">
+      <i class="icon icon-connect" ng-class="{'active': vm.currentIndex === 0}"></i> Connect
+    </a>
+    <!-- <a class="tab-item" ng-click="vm.setTabIndex(1)" ng-class="{'active': vm.currentIndex === 1}">
+      <i class="icon icon-groups" ng-class="{'active': vm.currentIndex === 1}"></i> Groups
+    </a>
+    <a class="tab-item" ng-click="vm.setTabIndex(2)" ng-class="{'active': vm.currentIndex === 2}">
+      <i class="icon icon-question" ng-class="{'active': vm.currentIndex === 2}"></i> Ask
+    </a> -->
+    <a class="tab-item" ng-click="vm.setTabIndex(1)" ng-class="{'active': vm.currentIndex === 1}">
+      <i class="icon icon-events" ng-class="{'active': vm.currentIndex === 1}"></i> Events
+    </a>
+  </div>
+
+  <ion-content class="tabs-container">
+
+    <ion-slide-box class="col-100 register-slider" show-pager="false" on-slide-changed="vm.slideHasChanged($index)">
+      <ion-slide>
+        <ion-scroll zooming="true">
+          <users-info-list></users-info-list>
+        </ion-scroll>
+      </ion-slide>
+      <!-- <ion-slide>
+        <ion-scroll zooming="true">
+          <interests-prefilter filter="groups"></interests-prefilter>
+        </ion-scroll>
+      </ion-slide>
+      <ion-slide>
+        <ion-scroll zooming="true">
+          <interests-prefilter filter="questions"></interests-prefilter>
+        </ion-scroll>
+      </ion-slide> -->
+      <ion-slide>
+        <ion-scroll zooming="true">
+          <interests-prefilter filter="events"></interests-prefilter>
+        </ion-scroll>
+      </ion-slide>
+    </ion-slide-box>
+
+  </ion-content>
+
+</ion-view>

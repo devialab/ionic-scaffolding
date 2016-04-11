@@ -1,0 +1,91 @@
+{
+  "name": "app-name",
+  "version": "0.0.1",
+  "description": "",
+  "author": {
+    "name": "Devialab S.L.",
+    "email": "hello@devialab.com",
+    "url": "http://devialab.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:devialab/app-name.git"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-jshint": "^2.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-scss-lint": "^0.3.9",
+    "jasmine-core": "^2.4.1",
+    "jshint-stylish": "^2.1.0",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "0.2.3",
+    "karma-coverage": "^0.5.5",
+    "karma-jasmine": "^0.3.7",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-spec-reporter": "0.0.26"
+  },
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "event-stream": "^3.3.2",
+    "grunt-webtranslateit": "0.0.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-grunt": "0.5.3",
+    "gulp-inject": "^4.0.0",
+    "gulp-ng-constant": "^1.1.0",
+    "gulp-release-it": "^1.0.10",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
+    "gulp-wiredep": "0.0.0",
+    "jshint": "^2.9.1",
+    "main-bower-files": "^2.11.1",
+    "phantomjs-prebuilt": "^2.1.5",
+    "shelljs": "^0.6.0",
+    "yargs": "^4.2.0"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "ionic-plugin-keyboard",
+    "com.telerik.plugins.nativepagetransitions",
+    "cordova-plugin-image-picker",
+    {
+      "variables": {
+        "SENDER_ID": "google_app_id"
+      },
+      "locator": "phonegap-plugin-push",
+      "id": "phonegap-plugin-push"
+    },
+    {
+      "variables": {
+        "APP_ID": "facebook_app_id",
+        "APP_NAME": "Lanzarote Cognitive"
+      },
+      "locator": "cordova-plugin-facebook4",
+      "id": "cordova-plugin-facebook4"
+    }
+  ],
+  "cordovaPlatforms": [
+    "ios",
+    "android"
+  ],
+  "engines": {
+    "node": "~4.2.6"
+  },
+  "scripts": {
+    "postinstall": "bower install --force-latest",
+    "build": "ionic resources && gulp clean && gulp build",
+    "test": "gulp clean && gulp test",
+    "start": "gulp clean && ionic serve --address 0.0.0.0"
+  }
+}

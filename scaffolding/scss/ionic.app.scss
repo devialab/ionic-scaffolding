@@ -1,0 +1,24 @@
+// To customize the look and feel of Ionic, you can override the variables in ionic's _variables.scss file.
+@import "./_variables";
+@import "./_mixins";
+// Include all of Ionic
+@import "../bower_components/ionic/scss/ionic";
+// bower:scss
+// endbower
+
+// ------------ ^_ That's yo stuff --------- //
+
+@import "./_buttons";
+@import "./_cards";
+@import "./_dropdown";
+@import "./_footer";
+@import "./_forms";
+@import "./_graphs";
+@import "./_items";
+@import "./_modal";
+@import "./_navbar";
+@import "./_spinner";
+@import "./_type";
+@import "./_utilities";
+@import "./modules/about/_about";
+@import "./modules/ui/_ui";

@@ -1,0 +1,135 @@
+.light, a.light {
+  color: $light !important;
+}
+
+.light-bg {
+  background-color: $light;
+}
+
+.light-border {
+  border-color: $light;
+}
+
+.dark, a.dark {
+  color: $dark !important;
+}
+
+.dark-bg {
+  background-color: $dark;
+}
+
+.dark-border {
+  border-color: $dark;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.text-ellipsis-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.vertical-container {
+  display: table !important;
+  height: 100%;
+  .vertical-middle {
+    display: table-cell;
+    vertical-align: middle;
+    top: 0;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.vertical-middle {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.margin-container-top {
+  margin-top: 2.7em !important;
+}
+
+.search-footer {
+  width: 100% !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.has-header {
+  top: 43px;
+}
+
+.row-top {
+  position: absolute;
+  top: 0;
+}
+
+.row-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.rotate-90 {
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.col {
+  .col-15 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 15%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 15%;
+    -ms-flex: 0 0 15%;
+    flex: 0 0 15%;
+    max-width: 15%;
+  }
+  .col-70 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 70%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 70%;
+    -ms-flex: 0 0 70%;
+    flex: 0 0 70%;
+    max-width: 70%;
+  }
+  .col-85 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 85%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 85%;
+    -ms-flex: 0 0 85%;
+    flex: 0 0 85%;
+    max-width: 85%;
+  }
+}
+
+.image-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
