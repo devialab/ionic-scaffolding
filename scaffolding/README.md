@@ -21,11 +21,11 @@
 # Installation
 
 ```
-gem install compass
-npm install -g bower protractor cordova ionic
+gem install compass scss-lint
+npm install -g bower protractor cordova ionic gulp
 npm install && bower install
-ionic resources
 ionic state reset
+ionic resources
 ionic browser add crosswalk
 ```
 
