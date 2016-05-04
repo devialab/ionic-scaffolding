@@ -12,6 +12,13 @@
       // then override any default you want
       if (window.plugins && window.plugins.nativepagetransitions) {
         window.plugins.nativepagetransitions.globalOptions.duration = 300;
+        window.plugins.nativepagetransitions.globalOptions.iosdelay = 350;
+        window.plugins.nativepagetransitions.globalOptions.androiddelay = 400;
+        window.plugins.nativepagetransitions.globalOptions.winphonedelay = 350;
+        window.plugins.nativepagetransitions.globalOptions.slowdownfactor = 4;
+        // these are used for slide left/right only currently
+        window.plugins.nativepagetransitions.globalOptions.fixedPixelsTop = 0;
+        window.plugins.nativepagetransitions.globalOptions.fixedPixelsBottom = 0;
       }
 
     });
