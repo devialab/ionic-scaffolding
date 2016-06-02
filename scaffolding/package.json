@@ -36,6 +36,7 @@
     "bower": "^1.7.7",
     "event-stream": "^3.3.2",
     "grunt-webtranslateit": "0.0.2",
+    "gulp-angular-templatecache": "^1.8.0",
     "gulp-clean": "^0.3.2",
     "gulp-grunt": "0.5.3",
     "gulp-inject": "^4.0.0",
@@ -73,7 +74,8 @@
       },
       "locator": "cordova-plugin-facebook4",
       "id": "cordova-plugin-facebook4"
-    }
+    },
+    "cordova-plugin-wkwebview"
   ],
   "cordovaPlatforms": [
     "ios",
@@ -84,6 +86,7 @@
   },
   "scripts": {
     "postinstall": "bower install --force-latest",
+    "reset": "npm install && bower install && ionic resources && ionic state reset && ionic browser add crosswalk",
     "build": "ionic resources && gulp clean && gulp build",
     "test": "gulp clean && gulp test",
     "start": "gulp clean && ionic serve --address 0.0.0.0"

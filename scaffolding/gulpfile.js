@@ -21,6 +21,7 @@ var karma = require('karma').server;
 var wiredep = require('gulp-wiredep');
 var inject = require('gulp-inject');
 var mainBowerFiles = require('main-bower-files');
+var templateCache = require('gulp-angular-templatecache');
 require('gulp-release-it')(gulp);
 require('gulp-grunt')(gulp);
 
@@ -30,10 +31,10 @@ var CONFIG = require('./www/json/config.' + ENV + '.json');
 
 var paths = {
   sass: ['./scss/**/*.scss', './www/js/modules/**/*.scss'],
-  js: ['./www/js/*.js', '!./www/js/app.{const,defaultLang}.js', './gulpfile.js']
+  js: ['./www/js/*.js', '!./www/js/app.{const,defaultLang,templates}.js', './gulpfile.js']
 };
 
-gulp.task('build', ['ngconstant', 'sass', 'bower', 'bower-files', 'inject']);
+gulp.task('build', ['ngconstant', 'templates', 'sass', 'bower', 'bower-files', 'inject']);
 gulp.task('test', ['lint', 'build', 'karma']);
 gulp.task('serve', ['build', 'watch']);
 gulp.task('default', ['lint', 'build']);
@@ -48,11 +49,23 @@ gulp.task('clean', function() {
     'www/css',
     'www/flags',
     'www/js/app.const.js',
-    'www/js/app.defaultLang.js'
+    'www/js/app.defaultLang.js',
+    'www/js/app.templates.js'
   ]).pipe(clean({
     read: false,
     force: true
   }));
+});
+
+gulp.task('templates', function() {
+  return gulp.src('www/js/**/*.html')
+    .pipe(templateCache('app.templates.js', {
+      module: 'app.templates',
+      root: 'js/',
+      standalone: true,
+      moduleSystem: 'IIFE'
+    }))
+    .pipe(gulp.dest('www/js'));
 });
 
 gulp.task('bower', function() {
@@ -160,13 +173,15 @@ gulp.task('sass', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['scss-lint', 'sass']);
+  gulp.watch(paths.sass, ['sass']);
+  // gulp.watch(paths.sass, ['scss-lint', 'sass']);
   gulp.watch('./www/js/**/*.js', ['jscs', 'jshint', 'eslint']);
+  gulp.watch('./www/js/modules/**/*.html', ['templates']);
   gulp.watch(['./www/json/config.*.json', './www/json/lang/*.json'], ['ngconstant', 'inject']);
   gulp.watch('./bower.json', ['bower']);
 });
 
-gulp.task('inject', ['ngconstant'], function() {
+gulp.task('inject', ['ngconstant', 'templates'], function() {
 
   var target = gulp.src('./www/index.html');
   var sources = gulp.src(['./js/*.js', './js/modules/**/*.module.js', './js/modules/**/*.js', './js/**/*.js'], {

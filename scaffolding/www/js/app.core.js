@@ -13,11 +13,14 @@
     'angularMoment',
     'angulartics',
     'angulartics.google.analytics',
+    'ionicLazyLoad',
+    'ionic-native-transitions',
     'angular-corbel',
 
     // Cross module dependencies
+    'app.config',
     'app.defaultLang',
-    'app.config'
+    'app.templates'
   ]);
 
 })();

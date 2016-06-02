@@ -2,22 +2,13 @@
 
   <ion-side-menu-content edge-drag-threshold="80">
 
-    <ion-nav-bar align-title="center" class="complex-bar" ng-hide="vm.search">
+    <ion-nav-bar align-title="center" ng-hide="vm.search">
 
-      <ion-nav-back-button direction="{{vm.backTransition}}" go-native></ion-nav-back-button>
-
-      <ion-nav-buttons side="left">
-        <button menu-toggle="left" class="button button-icon icon ion-navicon" ng-hide="vm.disableMenuIcons"></button>
-      </ion-nav-buttons>
-
-
-      <ion-nav-buttons side="right">
-        <button menu-toggle="right" class="button button-icon icon ion-person" ng-hide="vm.disableMenuIcons"></button>
-      </ion-nav-buttons>
+      <ion-nav-back-button></ion-nav-back-button>
 
     </ion-nav-bar>
 
-    <button class="button button-icon icon ion-help-circled button-float zoomIn animated" ng-click="vm.goToState('about')" direction="up" go-native></button>
+    <button class="button button-icon icon ion-help-circled button-float zoomIn animated" ng-click="vm.goToState('about')" direction="up"></button>
 
 
     <ion-nav-view></ion-nav-view>
@@ -41,7 +32,7 @@
           </div>
         </div>
 
-        <div menu-close class="item item-icon-left text-uppercase" ng-click="vm.goToState('profile')" go-native>
+        <div menu-close class="item item-icon-left text-uppercase" ng-click="vm.goToState('profile')">
           <i class="icon ion-person"></i> My Profile
         </div>
 
@@ -58,7 +49,7 @@
 
       <div class="list">
 
-        <div menu-close class="item item-icon-left text-uppercase" ng-click="vm.goToState('about')" go-native>
+        <div menu-close class="item item-icon-left text-uppercase" ng-click="vm.goToState('about')">
           <i class="icon ion-person"></i> About Us
         </div>
 

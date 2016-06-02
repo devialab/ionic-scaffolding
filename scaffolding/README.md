@@ -26,6 +26,7 @@ npm install -g bower protractor cordova ionic gulp
 npm install && bower install
 ionic state reset
 ionic resources
+ionic plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions#0.6.2
 ionic browser add crosswalk
 ```
 

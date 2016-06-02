@@ -17,7 +17,6 @@
     vm.goToState = goToState;
 
     vm.profileImage = '';
-    vm.backTransition = 'left';
 
     vm.logout = logout;
 
@@ -45,7 +44,6 @@
 
     function _addEventListener() {
       $rootScope.$on('user:change', _updateUser);
-      $rootScope.$on('go-native:start', _setBackTransition);
     }
 
     function _updateUser(evt, value) {
@@ -61,12 +59,6 @@
         vm.userName = user.name;
         vm.user_id = user.user_id;
       });
-    }
-
-    function _setBackTransition(evt, params) {
-      console.log(params.direction);
-      vm.backTransition = goNativeService.getReversalDirection(params.direction);
-      console.log(vm.backTransition);
     }
 
   }

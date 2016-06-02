@@ -16,13 +16,13 @@
         android: {
           senderID: config.get('google.projectId'),
           forceShow: true,
+          icon: 'push',
           iconColor: config.get('brand.primary')
         },
         ios: {
           alert: true,
           badge: true,
-          sound: true,
-          clearBadge: true
+          sound: true
         },
         windows: {}
       });

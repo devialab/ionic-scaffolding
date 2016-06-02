@@ -50,17 +50,6 @@
         navigator.app.backHistory();
       }
 
-      window.plugins.nativepagetransitions.slide({
-          'direction': goNativeService.getNextDirection()
-        },
-        function(msg) {
-          console.log('success: ' + msg);
-        }, // called when the animation has finished
-        function(msg) {
-          alert('error: ' + msg);
-        } // called in case you pass in weird values
-      );
-
       return false;
     }, 110);
 
@@ -110,7 +99,15 @@
     ga('create', config.get('googleAnalyticsCode'), 'auto');
     /* jshint ignore:end */
 
-  }).config(function($logProvider, $compileProvider, $ionicConfigProvider, $sceDelegateProvider, $sanitizeProvider, corbelDriverProvider, configProvider) {
+  }).config(function(
+    $logProvider,
+    $compileProvider,
+    $ionicConfigProvider,
+    $ionicNativeTransitionsProvider,
+    $sceDelegateProvider,
+    $sanitizeProvider,
+    corbelDriverProvider,
+    configProvider) {
 
     /**
      * ANGULAR-CORBEL
@@ -131,13 +128,13 @@
     $sanitizeProvider.enableSvg(true);
 
     $ionicConfigProvider.views.transition('none');
+    $ionicConfigProvider.views.forwardCache(true);
+    $ionicConfigProvider.views.swipeBackEnabled(false);
 
     $logProvider.debugEnabled(!configProvider.get('production'));
     $compileProvider.debugInfoEnabled(!configProvider.get('production'));
 
-    if (ionic.Platform.isAndroid()) {
-      $ionicConfigProvider.scrolling.jsScrolling(true);
-    }
+    $ionicConfigProvider.scrolling.jsScrolling(false);
 
     $sceDelegateProvider.resourceUrlWhitelist([
       // Allow same origin resource loads.
@@ -145,6 +142,17 @@
       // Allow loading from our assets domain.  Notice the difference between * and **.
       // 'http://*.eu-west-1.compute.amazonaws.com/api/**'
     ]);
+
+    //Configure default transitions
+    $ionicNativeTransitionsProvider.setDefaultOptions({
+      slowdownfactor: 1, // overlap views (higher number is more) or no overlap (1), default 4
+      duration: 300, // in milliseconds (ms), default 400,
+      backInOppositeDirection: true // Takes over default back transition and state back transition to use the opposite direction transition to go back
+    });
+    $ionicNativeTransitionsProvider.setDefaultTransition({
+      type: 'slide',
+      direction: 'left'
+    });
 
   });
 
