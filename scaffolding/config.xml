@@ -67,7 +67,7 @@
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
   <plugin name="cordova-plugin-inappbrowser" spec="^1.2.1"/>
-  <plugin name="cordova-plugin-facebook4" spec="~1.6.3">
+  <plugin name="cordova-plugin-facebook4" spec="~1.7.4">
     <variable name="APP_ID" value="facebook_app_id"/>
     <variable name="APP_NAME" value="app-name"/>
   </plugin>

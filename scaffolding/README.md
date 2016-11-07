@@ -18,23 +18,25 @@
 * AppId: `*****`
 
 
+# Dependencies
+
+* Ruby
+* NodeJS
+
+
 # Installation
 
 ```
-gem install compass scss-lint
-npm install -g bower protractor cordova ionic gulp
-npm install && bower install
-ionic state reset
-ionic resources
-ionic plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions#0.6.2
-ionic browser add crosswalk
+npm run install:deps
+npm install --force
+npm start
 ```
 
 
 # Build project
 
 ```
-gulp build
+npm build
 ```
 
 
@@ -45,7 +47,7 @@ Build/run project with specific environment config.
 Supported values: `int` `prod`
 
 ```
-gulp build --env int
+npm build --env int
 ```
 
 
@@ -83,7 +85,7 @@ gulp build --env int
 * Unit test
 
 	```
-	gulp test
+	npm test
 	```
 
 

@@ -6,7 +6,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
 var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
+var cleanCSS = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 
@@ -163,7 +163,7 @@ gulp.task('sass', function() {
     .pipe(sass())
     .on('error', sass.logError)
     .pipe(gulp.dest('./www/css/'))
-    .pipe(minifyCss({
+    .pipe(cleanCSS({
       keepSpecialComments: 0
     }))
     .pipe(rename({
@@ -245,7 +245,7 @@ gulp.task('install', ['git-check'], function() {
 
 gulp.task('git-check', function(cb) {
   if (!sh.which('git')) {
-    console.log(
+    gutil.log(
       '  ' + gutil.colors.red('Git is not installed.'),
       '\n  Git, the version control system, is required to download Ionic.',
       '\n  Download git here:', gutil.colors.cyan('http://git-scm.com/downloads') + '.',
